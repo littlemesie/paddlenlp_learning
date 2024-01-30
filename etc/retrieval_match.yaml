@@ -1,0 +1,54 @@
+# train
+batch_size: 4
+device: 'cpu'
+epochs: 10
+# whether evaluate while training
+evaluate: True
+# Recall number for each query from Ann index.
+hnsw_ef: 100
+# Recall number for each query from Ann index.
+hnsw_m: 100
+# Recall number for each query from Ann index.
+hnsw_max_elements: 1000000
+# Recall number for each query from Ann index.
+recall_num: 50
+init_from_ckpt: None
+log_steps: 10
+max_seq_length: 512
+model_name_or_path: 'rocketqa-zh-dureader-query-encoder'
+output_emb_size: 256
+save_steps: 10000
+# Scale for pair-wise margin_rank_loss
+scale: 30
+# Margin between pos_sample and neg_samples
+margin: 0.2
+seed: 1000
+# The threshold for selection the labels
+threshold: 0.5
+learning_rate: 5e-05
+warmup_proportion: 0.0
+weight_decay: 0.0
+# file path
+model_save_dir: './checkpoint'
+recall_result_dir: './recall_result_dir'
+recall_result_file: 'recall_result_init.txt'
+evaluate_result: 'evaluate_result.txt'
+train_set_file: './data/train.txt'
+similar_text_pair_file: './data/dev.txt'
+corpus_file: './data/label.txt'
+data_path: '/media/mesie/F0E66F06E66ECC82/数据/paddle/baike_qa_multilabel'
+model_path: '/media/mesie/F0E66F06E66ECC82/model/paddle'
+
+# predict
+# Enable to use tensorrt to speed up.
+use_tensorrt: False
+# The tensorrt precision.
+precision: fp32
+# Number of threads to predict when using cpu.
+cpu_threads: 10
+# Enable to use mkldnn to speed up when using cpu.
+enable_mkldnn: False
+# The file path to save log.
+save_log_path: ./log_output/
+# export
+output_path: ./output
