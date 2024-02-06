@@ -19,7 +19,7 @@ from paddlenlp.data import Pad, Tuple
 from paddlenlp.datasets import MapDataset, load_dataset
 from paddlenlp.transformers import AutoModel, AutoTokenizer, LinearDecayWithWarmup
 from core.model_config import get_model_config
-from text_classfication.mutil_label.retrieval_match.metric import MetricReport
+from utils.metric import MetricReport
 from text_classfication.mutil_label.retrieval_match.model import SemanticIndexBatchNeg, SemanticIndexBase
 from utils.dataloader import read_text_pair, label2ids, get_dev_pair, convert_token, create_dataloader
 

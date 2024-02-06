@@ -1,0 +1,28 @@
+epochs: 10
+batch_size: 8
+device: 'cpu'
+early_stop: False
+early_stop_nums: 3
+learning_rate: 3e-05
+logging_steps: 5
+max_seq_length: 256
+seed: 3
+warmup: False
+warmup_steps: 0
+weight_decay: 0.0
+model_name: 'ernie-3.0-medium-zh'
+data_path: '/media/mesie/F0E66F06E66ECC82/数据/paddle/baike_qa_multilabel'
+model_path: '/media/mesie/F0E66F06E66ECC82/model/paddle'
+save_dir: './checkpoint'
+output_path: './output'
+init_from_ckpt: ''
+
+# predict
+# Enable to use tensorrt to speed up.
+use_tensorrt: False
+# The tensorrt precision.
+precision: fp32
+# Number of threads to predict when using cpu.
+cpu_threads: 10
+# Enable to use mkldnn to speed up when using cpu.
+enable_mkldnn: False

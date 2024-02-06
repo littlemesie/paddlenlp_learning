@@ -6,9 +6,6 @@
 """
 import os
 import paddle
-from paddle import inference
-from scipy import spatial
-from paddlenlp.data import Pad, Tuple
 from paddlenlp.transformers import AutoTokenizer, AutoModel
 from core.model_config import get_model_config
 from text_classfication.mutil_label.retrieval_match.base_model import SemanticIndexBaseStatic
@@ -36,6 +33,7 @@ def convert_model():
     # Save in static graph model.
     save_path = os.path.join(config.output_path, "inference")
     paddle.jit.save(model, save_path)
+
 if __name__ == '__main__':
     """"""
     convert_model()

@@ -18,6 +18,20 @@ def text_to_csv():
             data_dict['label'].append(line_list[1])
     data_df = pd.DataFrame(data_dict).reset_index(drop=True)
     data_df.to_csv(f"{data_path}/dev.csv",  index=False)
+
+
+def process_train():
+    df = pd.read_csv(f"{data_path}/train.csv")
+    data_dict = {'text': [], 'label': []}
+    for text, tmp in df.groupby(by='text'):
+        data_dict['text'].append(text)
+        label = ','.join(tmp['label'].tolist())
+        data_dict['label'].append(label)
+    data_df = pd.DataFrame(data_dict).reset_index(drop=True)
+    data_df.to_csv(f"{data_path}/train_1.csv", index=False)
+    print(data_df)
+
 if __name__ == '__main__':
     """"""
     # text_to_csv()
+    process_train()

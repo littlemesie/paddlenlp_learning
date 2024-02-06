@@ -14,6 +14,14 @@ def read_text_pair(data_path):
     for _, row in data_df.iterrows():
         yield {"text": row['text'], "label": row['label']}
 
+def read_dataset(data_path, label2id):
+    """Reads data."""
+    data_df = pd.read_csv(data_path)
+    data_df = data_df.dropna()
+    for _, row in data_df.iterrows():
+        labels = [label2id[l] for l in row['label'].split(',')]
+        yield {"text": row['text'], "label": labels}
+
 def label2ids(label_path):
     label2id = {}
     data_df = pd.read_csv(label_path)

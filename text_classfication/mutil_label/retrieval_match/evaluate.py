@@ -1,10 +1,8 @@
 # -*- coding:utf-8 -*-
 
-import argparse
-
 import numpy as np
 import pandas as pd
-from metric import MetricReport
+from utils.metric import MetricReport
 from tqdm import tqdm
 from core.model_config import get_model_config
 from utils.dataloader import label2ids
